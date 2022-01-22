@@ -1,14 +1,20 @@
 server:
     port: 8801
+
 eureka:
     client:
-        register-with-eureka: false
-        fetch-registry: false
+        serviceUrl:
+            defaultZone: ${EUREKA_URI:http://192.168.2.127:8761/eureka}
+    instance:
+        preferIpAddress: true
+
 service:
     security:
        secure-key-username: maik
        secure-key-password: maik13
 spring:
+    application:
+        name: product-ms-db
     jpa:
         database: POSTGRESQL
 
