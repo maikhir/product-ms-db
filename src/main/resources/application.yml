@@ -1,13 +1,11 @@
 server:
     port: 8801
-
 eureka:
     client:
         serviceUrl:
             defaultZone: ${EUREKA_URI:http://192.168.2.127:8761/eureka}
     instance:
         preferIpAddress: true
-
 service:
     security:
        secure-key-username: maik
@@ -15,6 +13,14 @@ service:
 spring:
     application:
         name: product-ms-db
+    zipkin:
+        base-url: http://192.168.2.127:9411/
+        sender:
+            type=web:
+        enable: true
+    sleuth:
+        sampler:
+            probability=1.0
     jpa:
         database: POSTGRESQL
 
@@ -26,7 +32,6 @@ spring:
         url: jdbc:postgresql://192.168.2.127:5432/product
         username: maik
         password: maik1310
-
 logging:
     level:
         '[com.netflix.eureka]': 'OFF'
