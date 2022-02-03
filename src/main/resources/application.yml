@@ -1,3 +1,6 @@
+application:
+    version: 0.0.3-SNAPSHOT
+    title: product-ms
 server:
     port: 8801
 eureka:
