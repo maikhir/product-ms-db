@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>de.hirthe.ms</groupId>
 	<artifactId>product-ms</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>product-ms</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -169,10 +169,6 @@
 					<from>
 						<image>arm64v8/openjdk:11-slim</image>
 						<platforms>
-							<platform>
-								<architecture>amd64</architecture>
-								<os>linux</os>
-							</platform>
 							<platform>
 								<architecture>arm64</architecture>
 								<os>linux</os>

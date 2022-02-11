@@ -4,8 +4,9 @@ import de.hirthe.ms.productms.model.Product;
 import de.hirthe.ms.productms.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/product")
@@ -15,19 +16,20 @@ public class ProductController {
     private IProductService productService;
 
     @PostMapping // api/product
-    public ResponseEntity<?> saveProduct(@RequestBody Product product) {
-        return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Product saveProduct(@RequestBody Product product) {
+        return productService.saveProduct(product);
     }
 
     @DeleteMapping("{productId}") //-> api/product/productId
-    public ResponseEntity<?> deleteProduct(@PathVariable Long productId)
-    {
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteProduct(@PathVariable Long productId) {
         productService.deleteProduct(productId);
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping // api/product
-    public ResponseEntity<?> getAllProducts() {
-        return ResponseEntity.ok(productService.findAllProduct());
+    @ResponseStatus(HttpStatus.OK)
+    public List<Product> getAllProducts() {
+        return productService.findAllProduct();
     }
 }

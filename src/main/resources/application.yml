@@ -1,5 +1,5 @@
 application:
-    version: 0.0.3-SNAPSHOT
+    version: 0.0.4-SNAPSHOT
     title: product-ms
 server:
     port: 8801
