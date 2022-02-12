@@ -1,4 +1,28 @@
 spring:
   cloud:
     config:
-      uri: http://localhost:8888/pro
+      uri: http://localhost:8888
+  application:
+    name: product-ms-db
+  datasource:
+    #driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.2.127:5432/product
+    username: maik
+    password: maik1310
+server:
+  port: 8421
+service:
+  security:
+    secure-key-username: maik
+    secure-key-password: maik13
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://192.168.2.127:8761/eureka}
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
