@@ -2,13 +2,14 @@ application:
     version: 0.0.4-SNAPSHOT
     title: product-ms
 server:
-    port: 8801
+    port: 0
 eureka:
     client:
         serviceUrl:
             defaultZone: ${EUREKA_URI:http://192.168.2.127:8761/eureka}
     instance:
-        preferIpAddress: true
+        instance-id: ${spring.application.name}:${random.uuid}
+
 service:
     security:
        secure-key-username: maik
