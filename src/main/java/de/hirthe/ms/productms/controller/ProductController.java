@@ -3,6 +3,7 @@ package de.hirthe.ms.productms.controller;
 import de.hirthe.ms.productms.model.Product;
 import de.hirthe.ms.productms.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,15 @@ public class ProductController {
 
     @Autowired
     private IProductService productService;
+
+    @Value("test.name")
+    private String testName;
+
+    @GetMapping("/name") //api/product/name
+    @ResponseStatus(HttpStatus.I_AM_A_TEAPOT)
+    public String getName() {
+        return testName;
+    }
 
     @PostMapping // api/product
     @ResponseStatus(HttpStatus.CREATED)

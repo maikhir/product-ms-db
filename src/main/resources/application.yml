@@ -1,6 +1,3 @@
-application:
-    version: 0.0.4-SNAPSHOT
-    title: product-ms
 server:
     port: 0
 eureka:
@@ -17,26 +14,8 @@ service:
 spring:
     application:
         name: product-ms-db
-    zipkin:
-        base-url: http://192.168.2.127:9411/
-        sender:
-            type=web:
-        enable: true
-    sleuth:
-        sampler:
-            probability=1.0
-    jpa:
-        database: POSTGRESQL
-
-        hibernate.ddl-auto: update
-        show-sql: true
     datasource:
-        platform: postgres
-        driverClassName: org.postgresql.Driver
+        #driverClassName: org.postgresql.Driver
         url: jdbc:postgresql://192.168.2.127:5432/product
         username: maik
         password: maik1310
-logging:
-    level:
-        '[com.netflix.eureka]': 'OFF'
-        '[com.netflix.discovery]': 'OFF'
